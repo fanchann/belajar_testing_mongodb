@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+    mongodb:
+        container_name: mongodb
+        environment:
+            - MONGO_INITDB_DATABASE=test
+            - MONGO_INITDB_ROOT_USERNAME=admin
+            - MONGO_INITDB_ROOT_PASSWORD=admin
+        image: mongo:4.4.2-bionic
+        networks:
+            - mongo_net
+        ports:
+            - 27018:27017
+
+networks:
+    mongo_net:
+        driver: bridge
